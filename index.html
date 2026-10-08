@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emilly Stefany | Lash & Brow Designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-color: #FAF7F5;
+      --card-bg: #FFFFFF;
+      --primary: #B8836F;
+      --primary-hover: #9E6C58;
+      --text-dark: #2F2A28;
+      --text-muted: #736964;
+      --gold-accent: #D4AF37;
+      --border-color: #EFE8E3;
+      --whatsapp-color: #25D366;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-dark);
+      line-height: 1.6;
+      padding-bottom: 70px;
+    }
+
+    header {
+      text-align: center;
+      padding: 50px 20px 30px;
+      background: linear-gradient(180deg, #F5ECE6 0%, var(--bg-color) 100%);
+    }
+
+    .badge {
+      display: inline-block;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      color: var(--primary);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      letter-spacing: 1px;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-top: 5px;
+      font-weight: 400;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    /* Sobre Mim */
+    .about-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 24px;
+      margin: 20px 0 35px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+      border: 1px solid var(--border-color);
+      text-align: center;
+    }
+
+    .about-card h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .about-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Seções */
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      text-align: center;
+      color: var(--text-dark);
+      margin: 40px 0 20px;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 45px;
+      height: 2px;
+      background: var(--primary);
+      margin: 8px auto 0;
+    }
+
+    /* Cards de Serviços */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 600px) {
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .service-card {
+      background: var(--card-bg);
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    }
+
+    .service-body {
+      padding: 20px;
+      flex-grow: 1;
+    }
+
+    .service-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .price {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--primary);
+      white-space: nowrap;
+    }
+
+    .service-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+
+    .service-subinfo {
+      font-size: 0.8rem;
+      color: var(--gold-accent);
+      margin-top: 8px;
+      font-weight: 500;
+    }
+
+    .btn-agendar {
+      display: block;
+      width: calc(100% - 40px);
+      margin: 0 20px 20px;
+      padding: 10px;
+      text-align: center;
+      background-color: var(--primary);
+      color: white;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: background-color 0.2s ease;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-agendar:hover {
+      background-color: var(--primary-hover);
+    }
+
+    /* Pagamentos & Localização */
+    .info-box {
+      background: var(--card-bg);
+      border-radius: 14px;
+      padding: 22px;
+      margin-top: 25px;
+      border: 1px solid var(--border-color);
+      text-align: center;
+    }
+
+    .info-box h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .info-box p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Botão Flutuante */
+    .float-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--whatsapp-color);
+      color: white;
+      padding: 14px 22px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 1000;
+      transition: transform 0.2s ease;
+    }
+
+    .float-btn:hover {
+      transform: scale(1.04);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <span class="badge">Lash & Brow Designer</span>
+    <h1 id="nome-designer">Emilly Stefany</h1>
+    <p class="subtitle" id="subtitulo-designer">Realçando sua beleza natural com leveza e elegância</p>
+  </header>
+
+  <div class="container">
+
+    <!-- SOBRE MIM -->
+    <section class="about-card">
+      <h2>Sobre Mim</h2>
+      <p id="sobre-texto">
+        Sou Lash Designer apaixonada por realçar a beleza natural de cada mulher. Proporciono harmonia e valorização completa do olhar com técnicas delicadas, respeitando o formato dos olhos e o estilo único de cada cliente. Seu olhar merece brilhar!
+      </p>
+    </section>
+
+    <!-- EXTENSÃO DE CÍLIOS -->
+    <h2 class="section-title">Extensão de Cílios</h2>
+    <div class="grid" id="grid-cilios"></div>
+
+    <!-- MANUTENÇÃO & REMOÇÃO -->
+    <h2 class="section-title">Manutenções & Remoção</h2>
+    <div class="grid" id="grid-manutencoes"></div>
+
+    <!-- SOBRANCELHAS & SPA -->
+    <h2 class="section-title">Sobrancelhas & Spa</h2>
+    <div class="grid" id="grid-sobrancelhas"></div>
+
+    <!-- FORMAS DE PAGAMENTO -->
+    <div class="info-box">
+      <h3>Formas de Pagamento</h3>
+      <p>Pix à vista • Dinheiro • Cartão de crédito/débito por aproximação (até 12x)</p>
+    </div>
+
+    <!-- LOCALIZAÇÃO -->
+    <div class="info-box">
+      <h3>Endereço & Atendimento</h3>
+      <p id="endereco-texto">R. F, 125 - Dolearina, Estrela do Sul - MG</p>
+      <p style="margin-top: 5px; font-weight: 500; color: var(--primary);">Atendimento com horário agendado</p>
+    </div>
+
+  </div>
+
+  <!-- BOTAO FLUTUANTE WHATSAPP -->
+  <a id="btn-whatsapp-geral" href="#" class="float-btn" target="_blank">
+    Agendar Horário
+  </a>
+
+  <!-- SCRIPT ONDE A CLIENTE PODE EDITAR TUDO FACILMENTE -->
+  <script>
+    /* ========================================================
+       ÁREA DE CONFIGURAÇÃO / EDIÇÃO FÁCIL
+       A cliente (ou você) só precisa alterar os textos e valores abaixo!
+       ======================================================== */
+    const CONFIG = {
+      // DADOS DE CONTATO
+      whatsappNumero: "5534999999999", // Colocar o DDD + número sem espaços nem traços
+
+      // 1. TÉCNICAS DE CÍLIOS
+      cilios: [
+        {
+          nome: "Clássico",
+          preco: "R$ 130,00",
+          descricao: "Delicado e natural que vai combinar com você, pura elegância e luxo.",
+          extra: "Manutenção de 15 em 15 dias: R$ 60,00"
+        },
+        {
+          nome: "Brasileiro",
+          preco: "R$ 140,00",
+          descricao: "Para você que busca um olhar mais marcante, volumoso e expressivo.",
+          extra: ""
+        },
+        {
+          nome: "Egípcio",
+          preco: "R$ 150,00",
+          descricao: "Perfeito para quem busca um olhar destacado e delicado ao mesmo tempo.",
+          extra: ""
+        },
+        {
+          nome: "Europeu",
+          preco: "R$ 150,00",
+          descricao: "Volume sutil e elegante, visual sofisticado sem abrir mão da leveza.",
+          extra: ""
+        },
+        {
+          nome: "Aurora",
+          preco: "R$ 150,00",
+          descricao: "Resultado moderno com efeito leve e elegante para realçar o olhar.",
+          extra: ""
+        },
+        {
+          nome: "Inglês",
+          preco: "R$ 160,00",
+          descricao: "Olhar glamuroso e volumoso, impossível de passar despercebido!",
+          extra: ""
+        },
+        {
+          nome: "Fox Eyes",
+          preco: "R$ 170,00",
+          descricao: "Olhar marcante e sensual com efeito delineado 'olhos de raposa'.",
+          extra: "Manutenção até 20 dias: R$ 80,00"
+        },
+        {
+          nome: "Delineado",
+          preco: "R$ 170,00",
+          descricao: "Mais expressão sem necessidade de maquiagem no dia a dia.",
+          extra: ""
+        },
+        {
+          nome: "Lash Lifting",
+          preco: "R$ 90,00",
+          descricao: "Curvatura e hidratação profunda dos seus próprios fios naturais.",
+          extra: ""
+        }
+      ],
+
+      // 2. MANUTENÇÕES E REMOÇÕES
+      manutencoes: [
+        {
+          nome: "Manutenção até 20 dias",
+          preco: "R$ 85,00",
+          descricao: "Renove a beleza dos seus fios no tempo ideal.",
+          extra: ""
+        },
+        {
+          nome: "Manutenção após 20 dias",
+          preco: "R$ 95,00",
+          descricao: "Revisão e preenchimento completo dos fios.",
+          extra: ""
+        },
+        {
+          nome: "Remoção p/ Nova Aplicação",
+          preco: "R$ 25,00",
+          descricao: "Retirada segura para iniciar uma nova extensão.",
+          extra: ""
+        },
+        {
+          nome: "Remoção Externa / Sem Aplicação",
+          preco: "R$ 35,00",
+          descricao: "Retirada de procedimentos externos com preservação dos fios naturais.",
+          extra: ""
+        }
+      ],
+
+      // 3. SOBRANCELHAS & SPA
+      sobrancelhas: [
+        {
+          nome: "Design Personalizado",
+          preco: "R$ 30,00",
+          descricao: "Mapeamento facial completo respeitando seu formato de rosto.",
+          extra: ""
+        },
+        {
+          nome: "Design com Henna",
+          preco: "R$ 40,00",
+          descricao: "Definição, preenchimento de falhas e destaque para o olhar.",
+          extra: ""
+        },
+        {
+          nome: "Spa Brow Relax",
+          preco: "R$ 40,00",
+          descricao: "Argiloterapia verde, blend de óleos nutritivos e massagem relaxante.",
+          extra: ""
+        },
+        {
+          nome: "Spa Labial",
+          preco: "R$ 20,00",
+          descricao: "Esfoliação, máscara de ácido hialurônico e hidratação profunda.",
+          extra: ""
+        },
+        {
+          nome: "Epilação de Buço",
+          preco: "R$ 15,00",
+          descricao: "Remoção suave e higiênica com cera facial.",
+          extra: ""
+        }
+      ]
+    };
+
+    // RENDERIZADOR AUTOMÁTICO
+    function renderCard(item) {
+      const msg = encodeURIComponent(`Olá Emilly! Gostaria de agendar o procedimento: *${item.nome}* (${item.preco}).`);
+      const link = `https://wa.me/${CONFIG.whatsappNumero}?text=${msg}`;
+      
+      return `
+        <div class="service-card">
+          <div class="service-body">
+            <div class="service-title">
+              <span>${item.nome}</span>
+              <span class="price">${item.preco}</span>
+            </div>
+            <p class="service-desc">${item.descricao}</p>
+            ${item.extra ? `<p class="service-subinfo">${item.extra}</p>` : ''}
+          </div>
+          <a href="${link}" target="_blank" class="btn-agendar">Agendar Este</a>
+        </div>
+      `;
+    }
+
+    document.getElementById('grid-cilios').innerHTML = CONFIG.cilios.map(renderCard).join('');
+    document.getElementById('grid-manutencoes').innerHTML = CONFIG.manutencoes.map(renderCard).join('');
+    document.getElementById('grid-sobrancelhas').innerHTML = CONFIG.sobrancelhas.map(renderCard).join('');
+
+    const msgGeral = encodeURIComponent("Olá Emilly! Gostaria de tirar uma dúvida sobre seus horários.");
+    document.getElementById('btn-whatsapp-geral').href = `https://wa.me/${CONFIG.whatsappNumero}?text=${msgGeral}`;
+  </script>
+</body>
+</html>
